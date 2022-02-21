@@ -8,7 +8,7 @@
     </div>
     <div class="children">
       <div class="header-child-text">
-        <div>Дети (макс.5)</div>
+        <div>Дети</div>
       </div>
       <div class="card" v-for="card in cards" :key="card.id">
         <div class="item">{{card.fName}}, {{card.age}}</div>
