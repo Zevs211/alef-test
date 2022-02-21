@@ -33,7 +33,7 @@
     border-radius: 100px;
     cursor: pointer;
   }
-  .full{
+  .empty{
     color: #01A7FD;
     background-color: #FFFFFF;
     border: 2px solid #01A7FD;
@@ -63,8 +63,11 @@
       }
     }
   }
-  .empty{
+  .full{
     background-color: #01A7FD;
     color: #FFFFFF;
+    &:active{
+      background-color: #7acef8;
+    }
   }
 </style>

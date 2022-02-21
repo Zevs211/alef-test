@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 #nav{
   position: relative;
   display: flex;

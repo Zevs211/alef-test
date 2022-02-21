@@ -2,22 +2,35 @@
   <div class="wrapper">
     <VInput 
       label="Имя"
-      v-model="fName"
+      v-model="props.card.fName"
       class="fname"
     />
     <VInput 
       label="Возраст"
-      v-model="age"
+      v-model="props.card.age"
       class="age"
     />
-    <div class="del">Удалить</div>
+    <div class="del" @click="remove">Удалить</div>
   </div>
 </template>
 
 <script setup>
 import VInput from './VInput.vue';
 
-
+const props = defineProps({
+  card: {
+    type: Object,
+    default: () => ({
+      id: 0,
+      fName: '',
+      age: '',
+    }),
+  },
+});
+const emits = defineEmits(['removeCard'])
+function remove(){
+  emits('removeCard', props.card.id)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +55,10 @@ import VInput from './VInput.vue';
     align-items: center;
 
     color: #01A7FD;
+    cursor: pointer;
+    &:hover{
+      color: #7acef8;
+    }
   }
 }
 </style>
