@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 import VInput from '../components/VInput.vue';
 import VButton from '../components/VButton.vue';
 import VCard from '../components/VCard.vue';
@@ -41,7 +41,9 @@ const cards = ref([]);
 
 onMounted(() => {
   const cardsCopy = localStorage.getItem('cards')
-  cards.value = JSON.parse(cardsCopy)
+  if(cardsCopy === null){
+    cards.value = []
+  } else {cards.value = JSON.parse(cardsCopy)}
   const fNameCopy = localStorage.getItem('fName');
   fName.value = JSON.parse(fNameCopy);
   const ageCopy = localStorage.getItem('age');
@@ -60,6 +62,7 @@ function save(){
   localStorage.setItem('cards', JSON.stringify(cards.value))
   localStorage.setItem('fName', JSON.stringify(fName.value))
   localStorage.setItem('age', JSON.stringify(age.value))
+  alert('Изменения сохранены')
 }
 function remove(id){
   cards.value = cards.value.filter((card) => card.id !== id)
